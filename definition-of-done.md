@@ -11,15 +11,28 @@ A task, feature, or bug fix is considered **done** when all of the following cri
 
 - Code compiles and builds without errors or warnings.
 - Code follows the project's established style guidelines and linting rules.
+- A strict linter standard must be enforced by git hooks locally (pre-commit) and as the first stage of remote CI/CD pipelines.
 - No TODO or FIXME comments left unresolved for the current task.
 - Dead code, unused imports, and unused variables have been removed.
+- Strongly typed languages are preferred for all projects.
+- Recursion is not allowed except where tail-call optimization is guaranteed by the language runtime.
+- All queues and buffers must be bounded.
+
+## Security
+
+- No critical, high, or medium vulnerabilities as determined by a SAST tool appropriate to the language.
+- CodeQL must be enabled on all projects.
+- Dependabot must be enabled on all projects.
+- OWASP and CIS standards must be met.
+- All network traffic must be encrypted in flight.
+- All encryption must support Post-Quantum Cryptography (PQC) (e.g. TLS 1.3+) and no less than TLS 1.2.
+- For non-PQC cryptography, all solutions must use ECC.
 
 ## Testing
 
-- Unit tests are written for all new or modified logic.
+- At least 98% unit/integration/e2e test coverage covering both happy path and sad path.
 - All existing tests pass.
 - Edge cases and error paths are covered.
-- Test coverage meets or exceeds the project's minimum threshold.
 
 ## Code Review
 
@@ -30,8 +43,12 @@ A task, feature, or bug fix is considered **done** when all of the following cri
 ## Documentation
 
 - Public APIs, functions, and types have clear documentation.
-- README or relevant docs are updated if behavior changes.
+- All documentation must be maintained in a `docs/` directory tree and linked to be easy to find.
 - Breaking changes are documented in the changelog.
+
+## Versioning
+
+- Projects must use tag-based semantic versioning.
 
 ## Integration
 
