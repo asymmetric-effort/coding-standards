@@ -78,6 +78,7 @@ A task, feature, or bug fix is considered **done** when all of the following cri
 - One concept per page; use relative internal links.
 - Breaking changes are documented in a `CHANGELOG.md`.
 - A `CONTRIBUTING.md` must be present with setup instructions, development workflow, and coding conventions.
+- A `CODE_OF_CONDUCT.md` must be present in all projects.
 
 ## Versioning and Commits
 
