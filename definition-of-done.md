@@ -26,16 +26,18 @@ A task, feature, or bug fix is considered **done** when all of the following cri
 
 ## Security
 
-- No critical, high, or medium vulnerabilities as determined by a SAST tool appropriate to the language.
+All projects must comply with the [Security Standards](security-standards). The following are the minimum security checks required before any task is considered done:
+
+- No critical, high, or medium vulnerabilities as determined by a SAST tool appropriate to the language. See [Vulnerability Management](security-standards#vulnerability-management) for full requirements and remediation SLAs.
 - CodeQL must be enabled on all projects.
 - Dependabot must be enabled on all projects for source code dependencies, and GitHub Actions dependencies.
 - All GitHub Actions must be pinned to specific commit SHAs, not tags.
-- OWASP and CIS standards must be met.
-- All network traffic must be encrypted in flight.
-- All encryption must support Post-Quantum Cryptography (PQC) (e.g. TLS 1.3+) and no less than TLS 1.2.
+- OWASP and CIS standards must be met. See [Security Standards](security-standards) for the full set of controls.
+- All network traffic must be encrypted in flight. See [Encryption in Transit](security-standards#encryption-in-transit) for cipher and protocol requirements.
+- Post-Quantum Cryptography (PQC) is preferred for all encryption (e.g. TLS 1.3+). TLS 1.2 is the minimum acceptable version.
 - For non-PQC cryptography, all solutions must use ECC.
-- HTML output must be automatically escaped to prevent XSS.
-- No hardcoded secrets, credentials, or API keys in source code.
+- HTML output must be automatically escaped to prevent XSS. See [Input Validation and Output Encoding](security-standards#input-validation-and-output-encoding) for full encoding requirements.
+- No hardcoded secrets, credentials, or API keys in source code. See [Secrets Management](security-standards#secrets-management) for storage and rotation requirements.
 - Projects should minimize runtime dependencies to reduce supply chain attack surface. Zero runtime dependencies is the ideal.
 - A `SECURITY.md` policy must be present with reporting instructions and response timelines.
 
@@ -68,6 +70,7 @@ A task, feature, or bug fix is considered **done** when all of the following cri
 
 - A pull request has been opened and reviewed by at least one other team member.
 - All review comments have been addressed or resolved.
+- Reviews must include explicit security consideration for authentication, authorization, input handling, and data exposure. See [Secure Development Lifecycle](security-standards#secure-development-lifecycle).
 - The PR description clearly explains what changed and why.
 
 ## Documentation
@@ -102,7 +105,7 @@ A task, feature, or bug fix is considered **done** when all of the following cri
 
 - Feature flags or configuration changes are documented.
 - Database migrations (if any) are reversible and tested.
-- Monitoring and alerting are in place for new components or endpoints.
+- Monitoring and alerting are in place for new components or endpoints. See [Logging and Monitoring](security-standards#logging-and-monitoring) for security-specific monitoring requirements.
 
 ## Acceptance
 
