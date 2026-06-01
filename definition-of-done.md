@@ -87,6 +87,7 @@ All projects must comply with the [Security Standards](security-standards). The 
 
 - Projects must use tag-based semantic versioning.
 - Commit messages must follow Conventional Commits format: `feat:`, `fix:`, `test:`, `docs:`, `refactor:`, `perf:`, `chore:`.
+- All GitHub remote connections must use SSH, not HTTPS. Repository URLs must use the `git@github.com:` format.
 
 ## Integration
 
